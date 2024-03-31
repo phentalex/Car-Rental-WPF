@@ -5,8 +5,68 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Car_Rental"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="MainWindow" Height="600" Width="1080"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True">
+    <Border Background="#392d37"
+            CornerRadius="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="CRAVECAR"
+           VerticalAlignment="Center"
+           HorizontalAlignment="Center"
+           FontSize="22"
+           Foreground="#edf1e2"/>
+
+
+
+            <StackPanel Grid.Row="1">
+
+                <RadioButton Content="Доступ"
+                             Height="50"
+                             Foreground="#edf1e2"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"/>
+
+                <RadioButton Content="Автопарк"
+                             Height="50"
+                             Foreground="#edf1e2"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"/>
+
+                <RadioButton Content="Сотрудники"
+                             Height="50"
+                             Foreground="#edf1e2"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"/>
+
+                <RadioButton Content="Клиенты"
+                             Height="50"
+                             Foreground="#edf1e2"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"/>
+
+                <RadioButton Content="Выход"
+                             Height="50"
+                             Foreground="#edf1e2"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"/>
+            </StackPanel>
+        </Grid>
+
         
-    </Grid>
+
+    </Border>
 </Window>
