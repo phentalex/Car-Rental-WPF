@@ -35,5 +35,65 @@ namespace Car_Rental
 
         MySqlConnection con = new MySqlConnection();
 
+        
+        private void BtnMenu1_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new PageCars();
+        }
+
+        private void BtnMenu2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnMenu3_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnMenu4_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void BtnHide_MouseEnter(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void BtnHide_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void BtnHide_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
+
+        private void BtnClose_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void BtnClose_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void BtnClose_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void SearchText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
