@@ -3,15 +3,151 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:Car_Rental"
       mc:Ignorable="d" 
       d:DesignHeight="880" d:DesignWidth="1620"
-      Title="PageCars">
+      Title="PageCars"
+      FontSize="26"
+      Loaded="Page_Loaded">
 
     <Grid>
-        <DataGrid x:Name="CarsTable" 
-          d:ItemsSource="{d:SampleData ItemCount=5}"
-          Height="860"
-          Margin="10"/>
+        <DataGrid x:Name="CarsTable"
+                  Foreground="#223"
+                  Height="700"
+                  Margin="10"
+                  AutoGenerateColumns="True"
+                  VerticalAlignment="Top"/>
+        
+        <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Bottom">
+            
+            <StackPanel VerticalAlignment="Bottom"
+                    Height="180">
+
+                <TextBox x:Name="id_car"
+                         Visibility="Hidden"
+                         Margin="-20"
+                         Text="{Binding SelectedItem.НомерМашины, ElementName=CarsTable}"/>
+
+                <TextBox x:Name="licensePlate"
+                     Foreground="White"
+                     Background="#14141f"
+                     Width="300"
+                     Height="50" 
+                     Margin="20"
+                     materialDesign:HintAssist.Hint="Номерной знак"
+                     Text="{Binding SelectedItem.НомернойЗнак, ElementName=CarsTable}"/>
+                
+                <TextBox x:Name="manufacturer"
+                     Foreground="White"
+                     Background="#14141f"
+                     Width="300"
+                     Height="50"
+                     Margin="0, 20"
+                     materialDesign:HintAssist.Hint="Производитель"
+                     Text="{Binding SelectedItem.Производитель, ElementName=CarsTable}"/>
+            </StackPanel>
+
+
+
+            <StackPanel VerticalAlignment="Bottom"
+                        Height="180">
+
+                <TextBox x:Name="model"
+                     Foreground="White"
+                     Background="#14141f"
+                     Width="300"
+                     Height="50"
+                     Margin="20"
+                     materialDesign:HintAssist.Hint="Модель"
+                     Text="{Binding SelectedItem.Модель, ElementName=CarsTable}"/>
+
+                <TextBox x:Name="gearbox"
+                     Foreground="White"
+                     Background="#14141f"
+                     Width="300"
+                     Height="50"
+                     Margin="0, 20"
+                     materialDesign:HintAssist.Hint="Коробка передач"
+                     Text="{Binding SelectedItem.КоробкаПередач, ElementName=CarsTable}"/>
+                
+            </StackPanel>
+
+
+
+            <StackPanel VerticalAlignment="Bottom"
+                        Height="180">
+                <TextBox x:Name="price_a_day"
+                     Foreground="White"
+                     Background="#14141f"
+                     Width="300"
+                     Height="50"
+                     Margin="20"
+                     materialDesign:HintAssist.Hint="Цена за день"
+                     Text="{Binding SelectedItem.ЦенаЗаДень, ElementName=CarsTable}"/>
+                
+                <TextBox x:Name="year"
+                     Foreground="White"
+                     Background="#14141f"
+                     Width="300"
+                     Height="50"
+                     Margin="0, 20"
+                     materialDesign:HintAssist.Hint="Год выпуска"
+                     Text="{Binding SelectedItem.ГодВыпуска, ElementName=CarsTable}"/>
+                
+            </StackPanel>
+
+
+
+            <StackPanel VerticalAlignment="Bottom"
+                        Height="180"
+                        Margin="100, 0">
+
+                <Button Width="150" 
+                        Height="50" 
+                        Margin="20"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        BorderThickness="2"
+                        x:Name="btnAdd"
+                        Click="btnAdd_Click"
+                        Content="Добавить"
+                        Foreground="White"
+                        Background="#14141f"
+                        FontSize="16"/>
+
+                <Button Width="150" 
+                        Height="50" 
+                        Margin="20"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        BorderThickness="2"
+                        x:Name="btnEdit"
+                        Click="btnEdit_Click"
+                        Content="Редактировать"
+                        Foreground="White"
+                        Background="#14141f"
+                        FontSize="16"/>
+
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Bottom"
+                        Height="180">
+
+                <Button Width="150" 
+                        Height="50" 
+                        Margin="20"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        BorderThickness="2"
+                        x:Name="btnDelete"
+                        Click="btnDelete_Click"
+                        Content="Удалить"
+                        Foreground="White"
+                        Background="#14141f"
+                        FontSize="16"/>
+
+            </StackPanel>
+            
+        </StackPanel>
+        
     </Grid>
 </Page>

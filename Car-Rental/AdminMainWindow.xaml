@@ -1,0 +1,157 @@
+﻿<Window x:Class="Car_Rental.AdminMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Car_Rental"
+        mc:Ignorable="d"
+        Title="AdminMainWindow" Height="1080" Width="1920"
+        Background="Transparent"
+        FontSize="24"
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None"
+        Foreground="White"
+        BorderThickness="0">
+    <Border Background="#223"
+            MouseDown="Border_MouseDown">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="1"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Right">
+
+                <Button Style="{StaticResource MaterialDesignFloatingActionButton}"
+                        Background="{x:Null}" 
+                        ToolTip="Hide"  
+                        x:Name="btnHide" 
+                        Click="btnHide_Click" 
+                        HorizontalAlignment="Center">
+                    
+                    <materialDesign:PackIcon Kind="MinusThick" Foreground="White" Width="30" Height="30" />
+                    
+                </Button>
+
+                <Button Style="{StaticResource MaterialDesignFloatingActionButton}"
+                        Background="{x:Null}"
+                        ToolTip="Close" 
+                        x:Name="btnExit" 
+                        Cursor="Hand"
+                        Margin="20, 10"
+                        Click="btnExit_Click">
+
+                    <materialDesign:PackIcon Kind="Close" Foreground="White" Width="30" Height="30" />
+                    
+                </Button>
+            </StackPanel>
+
+            <Line Grid.Row="2"
+                  HorizontalAlignment="Right"
+                  Stroke="#14141f"
+                  StrokeThickness="5"
+                  Y1="0"
+                  Y2="880"/>
+
+            <Line Grid.Row="0"
+                  Grid.Column="2"
+                  VerticalAlignment="Bottom"
+                  Stroke="#14141f"
+                  StrokeThickness="5"
+                  X1="0"
+                  X2="1620"/>
+
+            <Line Grid.Row="0"
+                  Grid.Column="0"
+                  VerticalAlignment="Bottom"
+                  HorizontalAlignment="Right"
+                  Stroke="#14141f"
+                  StrokeThickness="5"
+                  Y1="0"
+                  Y2="200"/>
+
+            <Line Grid.Row="0"
+                  Grid.Column="0"
+                  VerticalAlignment="Bottom"
+                  HorizontalAlignment="Right"
+                  Stroke="#14141f"
+                  StrokeThickness="5"
+                  X1="0"
+                  X2="300"/>
+            <Frame x:Name="Main" 
+                  Grid.Column="1"
+                  Grid.Row="1"
+                   NavigationUIVisibility="Hidden"/>
+
+            <StackPanel Grid.Row="1"
+                        Orientation="Vertical">
+                <Button x:Name="BtnMenu1"
+                        Content="Автопарк"
+                        Grid.Row="2" 
+                        Height="100" 
+                        VerticalAlignment="Top"
+                        Margin="10, 50, 15, 10"
+                        Click="BtnMenu1_Click"
+                        Background="#14141f"/>
+
+                <Button x:Name="BtnMenu2"
+                        Content="Аренда"
+                        Grid.Row="2" 
+                        Height="100" 
+                        VerticalAlignment="Top"
+                        Margin="10, 50, 15, 10"
+                        Click="BtnMenu2_Click"
+                        Background="#14141f"/>
+
+                <Button x:Name="BtnMenu3"
+                        Content="Клиенты"
+                        Grid.Row="2" 
+                        Height="100" 
+                        VerticalAlignment="Top"
+                        Margin="10, 50, 15, 10"
+                        Click="BtnMenu3_Click"
+                        Background="#14141f"/>
+
+                <Button x:Name="BtnMenu4"
+                        Content="Выход"
+                        Grid.Row="2" 
+                        Height="100" 
+                        VerticalAlignment="Top"
+                        Margin="10, 50, 15, 10"
+                        Click="BtnMenu4_Click"
+                        Background="#14141f"/>
+            </StackPanel>
+                
+            <StackPanel Grid.Column="1"
+                        Orientation="Horizontal">
+                <TextBlock Text="Поиск"
+                           VerticalAlignment="Center"
+                           Margin="30, 0"/>
+                <TextBox VerticalAlignment="Center"
+                         x:Name="SearchText" 
+                         Width="300"
+                         Height="50"
+                         TextChanged="SearchText_TextChanged"
+                         Foreground="White"
+                         Background="#14141f"/>
+            </StackPanel>
+
+            <Image x:Name="CraveCarImg"
+                   Margin="10, 10, 15, 10">
+                <Image.Source>
+                    <BitmapImage UriSource="E:\cravecar.jpeg"/>
+                </Image.Source>
+            </Image>
+        </Grid>
+    </Border>
+</Window>

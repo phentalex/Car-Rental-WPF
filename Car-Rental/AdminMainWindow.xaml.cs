@@ -23,17 +23,19 @@ namespace Car_Rental
     /// </summary>
     /// 
 
-    public partial class MainWindow : Window
+    public partial class AdminMainWindow : Window
     {
         string CS;
 
-        public MainWindow()
+        public AdminMainWindow()
         {
             InitializeComponent();
             con.ConnectionString = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString.ToString();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         MySqlConnection con = new MySqlConnection();
+        
 
         
         private void BtnMenu1_Click(object sender, RoutedEventArgs e)
@@ -43,17 +45,19 @@ namespace Car_Rental
 
         private void BtnMenu2_Click(object sender, RoutedEventArgs e)
         {
-
+            Main.Content = new PageRent();
         }
 
         private void BtnMenu3_Click(object sender, RoutedEventArgs e)
         {
-
+            Main.Content = new PageClients();
         }
 
         private void BtnMenu4_Click(object sender, RoutedEventArgs e)
         {
-
+            AuthWindow auth = new AuthWindow();
+            this.Close();
+            auth.Show();
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -61,39 +65,19 @@ namespace Car_Rental
             DragMove();
         }
 
-        private void BtnHide_MouseEnter(object sender, MouseEventArgs e)
-        {
-            
-        }
-
-        private void BtnHide_MouseLeave(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void BtnHide_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            
-        }
-
-        private void BtnClose_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void BtnClose_MouseLeave(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void BtnClose_MouseEnter(object sender, MouseEventArgs e)
-        {
-
-        }
-
         private void SearchText_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void btnHide_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
