@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Car_Rental"
         mc:Ignorable="d"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="MainWindow" Height="600" Width="1080"
         WindowStyle="None"
         ResizeMode="NoResize"
@@ -64,6 +63,31 @@
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"/>
             </StackPanel>
+            
+            <Frame Grid.Column="1"
+                   Grid.Row="2"
+                   x:Name="Main"
+                   NavigationUIVisibility="Hidden"/>
+
+            <Button Grid.Column="2"
+                    ToolTip="Close"
+                    Cursor="Hand"
+                    Content="X"
+                    BorderThickness="0"
+                    Background="{x:Null}"
+                    Width="20"
+                    Height="30"
+                    x:Name="BtnExit"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    FontSize="30"
+                    Foreground="#edf1e2"
+                    Margin="0,0,20,0"
+                    MouseEnter="BtnExit_MouseEnter"
+                    MouseLeave="BtnExit_MouseLeave"
+                    Click="BtnExit_Click"
+                    Padding="0,-6,0,0"/>
+
         </Grid>
 
         

@@ -25,8 +25,6 @@ namespace Car_Rental
 
     public partial class MainWindow : Window
     {
-        string CS;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -36,5 +34,19 @@ namespace Car_Rental
 
         MySqlConnection con = new MySqlConnection();
 
+        private void BtnExit_MouseEnter(object sender, MouseEventArgs e)
+        {
+            BtnExit.Foreground = new SolidColorBrush(Colors.DarkRed);
+        }
+
+        private void BtnExit_MouseLeave(object sender, MouseEventArgs e)
+        {
+            BtnExit.Foreground = new SolidColorBrush(Colors.White);
+        }
+
+        private void BtnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
