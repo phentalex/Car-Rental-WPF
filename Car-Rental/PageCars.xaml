@@ -6,15 +6,15 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:Car_Rental"
       mc:Ignorable="d" 
-      d:DesignHeight="880" d:DesignWidth="1620"
+      d:DesignHeight="800" d:DesignWidth="1620"
       Title="PageCars"
       FontSize="26"
       Loaded="Page_Loaded">
 
     <Grid>
         <DataGrid x:Name="CarsTable"
-                  Foreground="#223"
-                  Height="700"
+                  Foreground="#14141f"
+                  Height="620"
                   Margin="10"
                   AutoGenerateColumns="True"
                   VerticalAlignment="Top"/>

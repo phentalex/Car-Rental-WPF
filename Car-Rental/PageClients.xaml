@@ -3,12 +3,176 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:Car_Rental"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageClients">
+      d:DesignHeight="800" d:DesignWidth="1620"
+      Title="PageClients"
+      FontSize="26"
+      Loaded="Page_Loaded">
 
     <Grid>
-        
+
+        <StackPanel Grid.Column="1"
+                        Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Margin="0, 20">
+            <TextBlock Text="Поиск"
+                       VerticalAlignment="Center"
+                       Margin="30, 0"
+                       Foreground="White"/>
+            <TextBox VerticalAlignment="Center"
+                     x:Name="SearchText" 
+                     Width="300"
+                     Height="50"
+                     TextChanged="SearchText_TextChanged"
+                     Foreground="White"
+                     Background="#14141f"/>
+        </StackPanel>
+
+        <DataGrid x:Name="ClientsTable"
+                  Foreground="#14141f"
+                  Height="600"
+                  AutoGenerateColumns="True"
+                  VerticalAlignment="Top"
+                  Margin="10,100,10,10"/>
+
+        <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Bottom">
+
+            <StackPanel VerticalAlignment="Bottom"
+                    Height="180">
+
+                <TextBox x:Name="id_client"
+                         Visibility="Hidden"
+                         Margin="-20"
+                         Text="{Binding SelectedItem.НомерКлиента, ElementName=ClientsTable}"/>
+
+                <TextBox x:Name="name"
+                     Foreground="White"
+                     Background="#14141f"
+                     Width="300"
+                     Height="50" 
+                     Margin="20"
+                     materialDesign:HintAssist.Hint="ФИО"
+                     Text="{Binding SelectedItem.ФИО, ElementName=ClientsTable}"/>
+
+                <TextBox x:Name="passport"
+                     Foreground="White"
+                     Background="#14141f"
+                     Width="300"
+                     Height="50"
+                     Margin="0, 20"
+                     materialDesign:HintAssist.Hint="Паспорт"
+                     Text="{Binding SelectedItem.Паспорт, ElementName=ClientsTable}"/>
+            </StackPanel>
+
+
+
+            <StackPanel VerticalAlignment="Bottom"
+                        Height="180">
+
+                <TextBox x:Name="driversLicense"
+                     Foreground="White"
+                     Background="#14141f"
+                     Width="300"
+                     Height="50"
+                     Margin="20"
+                     materialDesign:HintAssist.Hint="Номер удостоверения"
+                     Text="{Binding SelectedItem.НомерУдостоверения, ElementName=ClientsTable}"/>
+
+                <TextBox x:Name="city"
+                     Foreground="White"
+                     Background="#14141f"
+                     Width="300"
+                     Height="50"
+                     Margin="0, 20"
+                     materialDesign:HintAssist.Hint="Город"
+                     Text="{Binding SelectedItem.Город, ElementName=ClientsTable}"/>
+
+            </StackPanel>
+
+
+
+            <StackPanel VerticalAlignment="Bottom"
+                        Height="180">
+                <DatePicker x:Name="birthDate"
+                            Foreground="White"
+                            Background="#14141f"
+                            Width="300"
+                            Height="50"
+                            Margin="20"
+                            materialDesign:HintAssist.Hint="Дата рождения"
+                            Text="{Binding SelectedItem.ДатаРождения, ElementName=ClientsTable}"
+                            IsTodayHighlighted="True">
+                    <DatePicker.CalendarStyle>
+                        <Style TargetType="{x:Type Calendar}">
+                            <Setter Property="Background" Value="#14141f"/>
+                        </Style>
+                    </DatePicker.CalendarStyle>
+                </DatePicker>
+
+                <TextBox x:Name="phone"
+                         Foreground="White"
+                         Background="#14141f"
+                         Width="300"
+                         Height="50"
+                         Margin="0, 20"
+                         materialDesign:HintAssist.Hint="Телефон"
+                         Text="{Binding SelectedItem.Телефон, ElementName=ClientsTable}"/>
+
+            </StackPanel>
+
+
+
+            <StackPanel VerticalAlignment="Bottom"
+                        Height="180"
+                        Margin="100, 0">
+
+                <Button Width="150" 
+                        Height="50" 
+                        Margin="20"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        BorderThickness="2"
+                        x:Name="btnAdd"
+                        Click="btnAdd_Click"
+                        Content="Добавить"
+                        Foreground="White"
+                        Background="#14141f"
+                        FontSize="16"/>
+
+                <Button Width="150" 
+                        Height="50" 
+                        Margin="20"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        BorderThickness="2"
+                        x:Name="btnEdit"
+                        Click="btnEdit_Click"
+                        Content="Редактировать"
+                        Foreground="White"
+                        Background="#14141f"
+                        FontSize="16"/>
+
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Bottom"
+                        Height="180">
+
+                <Button Width="150" 
+                        Height="50" 
+                        Margin="20"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        BorderThickness="2"
+                        x:Name="btnDelete"
+                        Click="btnDelete_Click"
+                        Content="Удалить"
+                        Foreground="White"
+                        Background="#14141f"
+                        FontSize="16"/>
+
+            </StackPanel>
+
+        </StackPanel>
+
     </Grid>
 </Page>
