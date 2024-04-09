@@ -22,11 +22,21 @@
                        Margin="30, 0"
                        Foreground="White"/>
             <TextBox VerticalAlignment="Center"
-                     x:Name="SearchText" 
+                     x:Name="SearchText1" 
                      Width="300"
                      Height="50"
-                     TextChanged="SearchText_TextChanged"
+                     TextChanged="SearchText1_TextChanged"
                      Foreground="White"
+                     materialDesign:HintAssist.Hint="ФИО"
+                     Background="#14141f"/>
+
+            <TextBox VerticalAlignment="Center"
+                     x:Name="SearchText2" 
+                     Width="300"
+                     Height="50"
+                     TextChanged="SearchText2_TextChanged"
+                     Foreground="White"
+                     materialDesign:HintAssist.Hint="Паспорт, Водительское"
                      Background="#14141f"/>
         </StackPanel>
 

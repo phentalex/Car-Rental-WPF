@@ -58,31 +58,6 @@
                   Y1="0"
                   Y2="880"/>
 
-            <Line Grid.Row="0"
-                  Grid.Column="2"
-                  VerticalAlignment="Bottom"
-                  Stroke="#14141f"
-                  StrokeThickness="5"
-                  X1="0"
-                  X2="1620"/>
-
-            <Line Grid.Row="0"
-                  Grid.Column="0"
-                  VerticalAlignment="Bottom"
-                  HorizontalAlignment="Right"
-                  Stroke="#14141f"
-                  StrokeThickness="5"
-                  Y1="0"
-                  Y2="200"/>
-
-            <Line Grid.Row="0"
-                  Grid.Column="0"
-                  VerticalAlignment="Bottom"
-                  HorizontalAlignment="Right"
-                  Stroke="#14141f"
-                  StrokeThickness="5"
-                  X1="0"
-                  X2="300"/>
             <Frame x:Name="Main" 
                   Grid.Column="1"
                   Grid.Row="1"

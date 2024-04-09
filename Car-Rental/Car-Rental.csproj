@@ -118,14 +118,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="UserMainWindow.xaml.cs">
+    <Compile Include="PageSelectCar.xaml.cs">
+      <DependentUpon>PageSelectCar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="user\UserMainWindow.xaml.cs">
       <DependentUpon>UserMainWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="AuthWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AdminMainWindow.xaml">
+    <Page Include="admin\AdminMainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -136,35 +139,39 @@
     <Compile Include="AuthWindow.xaml.cs">
       <DependentUpon>AuthWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AdminMainWindow.xaml.cs">
+    <Compile Include="admin\AdminMainWindow.xaml.cs">
       <DependentUpon>AdminMainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PageCars.xaml">
+    <Page Include="admin\PageCars.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageClients.xaml">
+    <Page Include="admin\PageClients.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageRent.xaml">
+    <Page Include="admin\PageRent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserMainWindow.xaml">
+    <Page Include="PageSelectCar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="user\UserMainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PageCars.xaml.cs">
+    <Compile Include="admin\PageCars.xaml.cs">
       <DependentUpon>PageCars.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageClients.xaml.cs">
+    <Compile Include="admin\PageClients.xaml.cs">
       <DependentUpon>PageClients.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageRent.xaml.cs">
+    <Compile Include="admin\PageRent.xaml.cs">
       <DependentUpon>PageRent.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">

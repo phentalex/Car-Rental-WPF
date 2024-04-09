@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Car_Rental"
         mc:Ignorable="d"
-        Title="UserMainWindow" Height="1080" Width="1920"
+        Title="UserMainWindow" Height="880" Width="1920"
         Background="Transparent"
         FontSize="24"
         ResizeMode="NoResize" 
@@ -50,6 +50,50 @@
 
                 </Button>
             </StackPanel>
+
+            <StackPanel Grid.Row="1"
+                        Orientation="Vertical"
+                        Margin="0, 100">
+                <Button x:Name="BtnMenu1"
+                        Content="Автомобили"
+                        Grid.Row="2" 
+                        Height="100" 
+                        VerticalAlignment="Top"
+                        Margin="10, 0, 15, 10"
+                        Click="BtnMenu1_Click"
+                        Background="#14141f"/>
+
+                <Button x:Name="BtnMenu2"
+                        Content="История Аренды"
+                        Grid.Row="2" 
+                        Height="100" 
+                        VerticalAlignment="Top"
+                        Margin="10, 50, 15, 10"
+                        Click="BtnMenu2_Click"
+                        Background="#14141f"/>
+
+                <Button x:Name="BtnMenu3"
+                        Content="Выход"
+                        Grid.Row="2" 
+                        Height="100" 
+                        VerticalAlignment="Top"
+                        Margin="10, 50, 15, 10"
+                        Click="BtnMenu3_Click"
+                        Background="#14141f"/>
+            </StackPanel>
+
+            <Line Grid.Row="2"
+                  HorizontalAlignment="Right"
+                  Stroke="#14141f"
+                  StrokeThickness="5"
+                  Y1="0"
+                  Y2="880"/>
+
+            <Frame x:Name="Main" 
+                  Grid.Column="1"
+                   NavigationUIVisibility="Hidden"
+                   VerticalAlignment="Bottom"
+                   Height="880"/>
         </Grid>
     </Border>
 </Window>

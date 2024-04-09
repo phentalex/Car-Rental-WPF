@@ -10,33 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Car_Rental
 {
     /// <summary>
-    /// Логика взаимодействия для UserMainWindow.xaml
+    /// Логика взаимодействия для Page1.xaml
     /// </summary>
-    public partial class UserMainWindow : Window
+    public partial class PageSelectCar : Page
     {
-        public UserMainWindow()
+        public PageSelectCar()
         {
             InitializeComponent();
-        }
-
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void btnHide_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnExit_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

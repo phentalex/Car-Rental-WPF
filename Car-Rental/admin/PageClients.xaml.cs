@@ -148,9 +148,27 @@ namespace Car_Rental
             }  
         }
 
-        private void SearchText_TextChanged(object sender, TextChangedEventArgs e)
-        {
+        //private void SearchText_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    DataView dvManager = dt.DefaultView;
+        //    dvManager.RowFilter = $"НомерКлиента LIKE '%{Convert.ToInt32(SearchText1.Text)}%' " +
+        //                          $"OR ФИО LIKE '%{SearchText1.Text}%' " +
+        //                          $"OR НомерУдостоверения LIKE '%{Convert.ToInt32(SearchText1.Text)}%' " +
+        //                          $"OR Город LIKE '%{SearchText1.Text}%' " +
+        //                          $"OR Телефон LIKE '%{Convert.ToInt64(SearchText1.Text)}%'";
+        //}
 
+        private void SearchText1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DataView dvManager1 = dt.DefaultView;
+            dvManager1.RowFilter = $"ФИО LIKE '%{SearchText1.Text}%'";
+        }
+
+        private void SearchText2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DataView dvManager2 = dt.DefaultView;
+            dvManager2.RowFilter = string.Format("convert(Паспорт, 'System.String') LIKE '%{0}%' OR convert(НомерУдостоверения, 'System.String') LIKE '%{0}%' ", SearchText2.Text);
+            //("convert(НомерУдостоверения, 'System.String') LIKE '%{0}%' ", SearchText2.Text);
         }
     }
 }
