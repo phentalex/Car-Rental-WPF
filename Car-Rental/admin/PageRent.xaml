@@ -12,12 +12,41 @@
       Loaded="Page_Loaded">
 
     <Grid>
-        
-        
+
+        <StackPanel Grid.Column="1"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Top"
+                    Margin="0, 20">
+
+            <TextBlock Text="Поиск"
+                       VerticalAlignment="Center"
+                       Margin="30, 0"
+                       Foreground="White"/>
+
+            <TextBox VerticalAlignment="Center"
+                     x:Name="SearchText1" 
+                     Width="315"
+                     Height="50"
+                     TextChanged="SearchText1_TextChanged"
+                     Foreground="White"
+                     materialDesign:HintAssist.Hint="ФИО, Машина, Номерной"
+                     Background="#14141f"/>
+
+            <TextBox VerticalAlignment="Center"
+                     x:Name="SearchText2" 
+                     Width="315"
+                     Height="50"
+                     TextChanged="SearchText2_TextChanged"
+                     Foreground="White"
+                     materialDesign:HintAssist.Hint="Паспорт, Стоимость"
+                     Background="#14141f"
+                     Margin="20,0"/>
+        </StackPanel>
+
         <DataGrid x:Name="RentsTable"
                   Foreground="#14141f"
-                  Height="620"
-                  Margin="10"
+                  Height="600"
+                  Margin="10, 100, 10, 10"
                   AutoGenerateColumns="True"
                   VerticalAlignment="Top"/>
 
@@ -25,7 +54,7 @@
                     VerticalAlignment="Bottom">
 
             <StackPanel VerticalAlignment="Bottom"
-                    Height="180">
+                        Height="180">
 
                 <TextBox x:Name="id_rent"
                          Visibility="Hidden"
@@ -33,22 +62,22 @@
                          Text="{Binding SelectedItem.НомерАренды, ElementName=RentsTable}"/>
 
                 <TextBox x:Name="id_client"
-                     Foreground="White"
-                     Background="#14141f"
-                     Width="300"
-                     Height="50"
-                     Margin="20"
-                     materialDesign:HintAssist.Hint="Номер клиента"
-                     Text="{Binding SelectedItem.НомерКлиента, ElementName=RentsTable}"/>
+                         Foreground="White"
+                         Background="#14141f"
+                         Width="300"
+                         Height="50"
+                         Margin="20"
+                         materialDesign:HintAssist.Hint="Номер клиента"
+                         Text="{Binding SelectedItem.НомерКлиента, ElementName=RentsTable}"/>
 
                 <TextBox x:Name="name"
-                     Foreground="White"
-                     Background="#14141f"
-                     Width="300"
-                     Height="50"
-                     Margin="0, 20"
-                     materialDesign:HintAssist.Hint="ФИО"
-                     Text="{Binding SelectedItem.ФИО, ElementName=RentsTable}"/>
+                         Foreground="White"
+                         Background="#14141f"
+                         Width="300"
+                         Height="50"
+                         Margin="0, 20"
+                         materialDesign:HintAssist.Hint="ФИО"
+                         Text="{Binding SelectedItem.ФИО, ElementName=RentsTable}"/>
             </StackPanel>
 
 
@@ -57,22 +86,22 @@
                         Height="180">
 
                 <TextBox x:Name="passport"
-                     Foreground="White"
-                     Background="#14141f"
-                     Width="300"
-                     Height="50"
-                     Margin="20"
-                     materialDesign:HintAssist.Hint="Паспорт"
-                     Text="{Binding SelectedItem.Паспорт, ElementName=RentsTable}"/>
+                         Foreground="White"
+                         Background="#14141f"
+                         Width="300"
+                         Height="50"
+                         Margin="20"
+                         materialDesign:HintAssist.Hint="Паспорт"
+                         Text="{Binding SelectedItem.Паспорт, ElementName=RentsTable}"/>
 
                 <TextBox x:Name="id_car"
-                     Foreground="White"
-                     Background="#14141f"
-                     Width="300"
-                     Height="50"
-                     Margin="0, 20"
-                     materialDesign:HintAssist.Hint="Номер машины"
-                     Text="{Binding SelectedItem.НомерМашины, ElementName=RentsTable}"/>
+                         Foreground="White"
+                         Background="#14141f"
+                         Width="300"
+                         Height="50"
+                         Margin="0, 20"
+                         materialDesign:HintAssist.Hint="Номер машины"
+                         Text="{Binding SelectedItem.НомерМашины, ElementName=RentsTable}"/>
 
             </StackPanel>
 
@@ -82,22 +111,22 @@
                         Height="180">
                 
                 <TextBox x:Name="car"
-                     Foreground="White"
-                     Background="#14141f"
-                     Width="300"
-                     Height="50"
-                     Margin="0, 20"
-                     materialDesign:HintAssist.Hint="Машина"
-                     Text="{Binding SelectedItem.Машина, ElementName=RentsTable}"/>
+                         Foreground="White"
+                         Background="#14141f"
+                         Width="300"
+                         Height="50"
+                         Margin="0, 20"
+                         materialDesign:HintAssist.Hint="Машина"
+                         Text="{Binding SelectedItem.Машина, ElementName=RentsTable}"/>
 
                 <TextBox x:Name="total_price"
-                     Foreground="White"
-                     Background="#14141f"
-                     Width="300"
-                     Height="50"
-                     Margin="0, 20"
-                     materialDesign:HintAssist.Hint="Полная стоимость"
-                     Text="{Binding SelectedItem.ПолнаяСтоимость, ElementName=ClientsTable}"/>
+                         Foreground="White"
+                         Background="#14141f"
+                         Width="300"
+                         Height="50"
+                         Margin="0, 20"
+                         materialDesign:HintAssist.Hint="Полная стоимость"
+                         Text="{Binding SelectedItem.ПолнаяСтоимость, ElementName=ClientsTable}"/>
 
             </StackPanel>
 
@@ -107,13 +136,13 @@
                         Height="180"
                         Margin="20, 0, 0 ,0">
                 <DatePicker x:Name="start_rent"
-                         Foreground="White"
-                         Background="#14141f"
-                         Width="300"
-                         Height="50"
-                         Margin="0, 20"
-                         materialDesign:HintAssist.Hint="Начало аренды"
-                         Text="{Binding SelectedItem.НачалоАренды, ElementName=RentsTable}">
+                            Foreground="White"
+                            Background="#14141f"
+                            Width="300"
+                            Height="50"
+                            Margin="0, 20"
+                            materialDesign:HintAssist.Hint="Начало аренды"
+                            Text="{Binding SelectedItem.НачалоАренды, ElementName=RentsTable}">
                     <DatePicker.CalendarStyle>
                         <Style TargetType="{x:Type Calendar}">
                             <Setter Property="Background" Value="#14141f"/>

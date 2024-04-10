@@ -32,12 +32,13 @@
 
             <TextBox VerticalAlignment="Center"
                      x:Name="SearchText2" 
-                     Width="300"
+                     Width="310"
                      Height="50"
                      TextChanged="SearchText2_TextChanged"
                      Foreground="White"
-                     materialDesign:HintAssist.Hint="Паспорт, Водительское"
-                     Background="#14141f"/>
+                     materialDesign:HintAssist.Hint="Паспорт, Права, Телефон"
+                     Background="#14141f"
+                     Margin="20,0"/>
         </StackPanel>
 
         <DataGrid x:Name="ClientsTable"

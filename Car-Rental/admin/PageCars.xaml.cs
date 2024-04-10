@@ -149,5 +149,12 @@ namespace Car_Rental
         {
             loadTable();
         }
+
+        private void SearchText1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DataView dvManager2 = dt.DefaultView;
+            dvManager2.RowFilter = $"Производитель LIKE '%{SearchText1.Text}%' OR " +
+                $"Модель LIKE '%{SearchText1.Text}%'OR КоробкаПередач LIKE '%{SearchText1.Text}%'";
+        }
     }
 }

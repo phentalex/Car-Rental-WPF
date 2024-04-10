@@ -22,12 +22,12 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <!--<Image HorizontalAlignment="Center"
+            <Image HorizontalAlignment="Center"
                    Margin="30, 0, 10, 0">
                 <Image.Source>
                     <BitmapImage UriSource="E:\cravecar.jpeg"/>
                 </Image.Source>
-            </Image>-->
+            </Image>
 
             <TextBlock Text="Аренда автомобилей"
                        VerticalAlignment="Bottom"

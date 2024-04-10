@@ -93,7 +93,7 @@
                   Grid.Column="1"
                    NavigationUIVisibility="Hidden"
                    VerticalAlignment="Bottom"
-                   Height="880"/>
+                   Height="800"/>
         </Grid>
     </Border>
 </Window>

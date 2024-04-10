@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Car_Rental.user;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,7 +47,7 @@ namespace Car_Rental
 
         private void BtnMenu2_Click(object sender, RoutedEventArgs e)
         {
-
+            Main.Content = new PageHistory();
         }
 
         private void BtnMenu3_Click(object sender, RoutedEventArgs e)
