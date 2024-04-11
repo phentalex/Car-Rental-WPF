@@ -19,9 +19,9 @@ namespace Car_Rental
     /// <summary>
     /// Логика взаимодействия для AuthWindow.xaml
     /// </summary>
-    public partial class AuthWindow : Window
+    public partial class AdminAuthWindow : Window
     {
-        public AuthWindow()
+        public AdminAuthWindow()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -60,13 +60,6 @@ namespace Car_Rental
                         this.Close();
                         mainA.Show();
                     }
-                    else if (Convert.ToInt32(dr["id_role"]) == 2)
-                    {
-                        MessageBox.Show("Вы успешно вошли как клиент!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
-                        UserMainWindow mainU = new UserMainWindow();
-                        this.Close();
-                        mainU.Show();
-                    } 
                     else
                     {
                         MessageBox.Show("Неверно указан логин или пароль!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);

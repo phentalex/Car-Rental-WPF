@@ -10,7 +10,8 @@
       Title="PageSelectCar"
       Loaded="Page_Loaded"
       FontSize="26"
-      Foreground="White">
+      Foreground="White"
+      Background="#223">
 
     <Grid>
 
@@ -27,7 +28,7 @@
 
             <Button x:Name="btn_select"
                     Style="{StaticResource MaterialDesignRaisedButton}"
-                    Background="{x:Null}"
+                    Background="#14141f"
                     Content="Оставить заявку"
                     Margin="620, 0, 0, 0"
                     Click="btn_select_Click"

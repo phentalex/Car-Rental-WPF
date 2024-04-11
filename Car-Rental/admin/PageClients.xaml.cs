@@ -56,7 +56,7 @@ namespace Car_Rental
                     "name 'ФИО', passport 'Паспорт', " +
                     "driversLicense 'НомерУдостоверения', " +
                     "city 'Город',  date_format(birthDate, '%d.%m.%Y') 'ДатаРождения', " +
-                    "phone 'Телефон' from rentalcar.clients;";
+                    "phone 'Телефон', email_user 'Почта' from rentalcar.clients;";
                 cmd.ExecuteNonQuery();
                 dt.Clear();
                 adapter.SelectCommand = cmd;
@@ -161,7 +161,7 @@ namespace Car_Rental
         private void SearchText1_TextChanged(object sender, TextChangedEventArgs e)
         {
             DataView dvManager1 = dt.DefaultView;
-            dvManager1.RowFilter = $"ФИО LIKE '%{SearchText1.Text}%' OR Город LIKE '{SearchText1.Text}'";
+            dvManager1.RowFilter = $"ФИО LIKE '%{SearchText1.Text}%' OR Город LIKE '{SearchText1.Text}' OR Почта LIKE '%{SearchText1.Text}%'";
         }
 
         private void SearchText2_TextChanged(object sender, TextChangedEventArgs e)

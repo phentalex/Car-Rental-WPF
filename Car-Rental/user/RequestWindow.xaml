@@ -13,15 +13,248 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         BorderThickness="0"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded">
     
     <Border Background="#223"
             MouseDown="Border_MouseDown">
 
         <Grid>
+
             
-            
-            
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+
+            </Grid.RowDefinitions>
+
+            <TextBox x:Name="login123"
+                     Visibility="Hidden"/>
+
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Right">
+
+                <Button Style="{StaticResource MaterialDesignFloatingActionButton}"
+                        Background="{x:Null}" 
+                        ToolTip="Hide"  
+                        x:Name="btnHide" 
+                        Click="btnHide_Click" 
+                        HorizontalAlignment="Center">
+
+                    <materialDesign:PackIcon Kind="MinusThick" Foreground="White" Width="30" Height="30" />
+
+                </Button>
+
+                <Button Style="{StaticResource MaterialDesignFloatingActionButton}"
+                        Background="{x:Null}"
+                        ToolTip="Close" 
+                        x:Name="btnExit" 
+                        Cursor="Hand"
+                        Margin="20, 10"
+                        Click="btnExit_Click">
+
+                    <materialDesign:PackIcon Kind="Close" Foreground="White" Width="30" Height="30" />
+
+                </Button>
+            </StackPanel>
+
+            <TextBlock Text="Проверьте корректность данных:"
+                       Margin="30, 10, 30, 330"
+                       Grid.Row="1"/>
+
+            <StackPanel Orientation="Horizontal"
+                        Grid.Row="1"
+                        Margin="30, 50, 30, 0">
+
+                <StackPanel Orientation="Vertical">
+
+                    <TextBlock Text="ФИО"
+                               Foreground="White"
+                               FontSize="20"
+                               Margin="0, 12, 5, 10"
+                               HorizontalAlignment="Right"/>
+
+                    <TextBlock Text="Телефон"
+                               Foreground="White"
+                               FontSize="20"
+                               Margin="0, 15, 5, 15"
+                               HorizontalAlignment="Right"/>
+
+                    <TextBlock Text="Паспорт"
+                               Foreground="White"
+                               FontSize="20"
+                               Margin="0, 15, 5, 15"
+                               HorizontalAlignment="Right"/>
+
+                    <TextBlock Text="Почта"
+                               Foreground="White"
+                               FontSize="20"
+                               Margin="0, 12, 5, 12"
+                               HorizontalAlignment="Right"/>
+
+                    <TextBlock Text="Дата рождения"
+                               Foreground="White"
+                               FontSize="20"
+                               Margin="0, 15, 5, 15"
+                               HorizontalAlignment="Right"/>
+
+                </StackPanel>
+                
+                <StackPanel Orientation="Vertical">
+
+                    <TextBox x:Name="name"
+                            materialDesign:HintAssist.Hint="ФИО"
+                            Width="200"
+                            Background="#14141f"
+                            Margin="0, 5"
+                            Text="{Binding SelectedItem.name, ElementName=ConfirmTable}"
+                            Foreground="White"
+                            FontSize="26"/>
+
+                    <TextBox x:Name="phone"
+                             materialDesign:HintAssist.Hint="Телефон"
+                             Width="200"
+                             Background="#14141f"
+                             Margin="0, 5"
+                             Text="{Binding SelectedItem.phone, ElementName=ConfirmTable}"
+                             Foreground="White"
+                             FontSize="26"/>
+
+                    <TextBox x:Name="passport"
+                             materialDesign:HintAssist.Hint="Паспорт"
+                             Width="200"
+                             Background="#14141f"
+                             Margin="0, 5"
+                             Text="{Binding SelectedItem.passport, ElementName=ConfirmTable}"
+                             Foreground="White"
+                             FontSize="26"/>
+
+                    <TextBox x:Name="email_user"
+                             materialDesign:HintAssist.Hint="Почта"
+                             Width="200"
+                             Background="#14141f"
+                             Margin="0, 5"
+                             Text="{Binding SelectedItem.email_user, ElementName=ConfirmTable}"
+                             Foreground="White"
+                             FontSize="26"/>
+
+                    <TextBox x:Name="birth_of_date"
+                             materialDesign:HintAssist.Hint="Дата рождения"
+                             Width="200"
+                             Background="#14141f"
+                             Margin="0, 5"
+                             Text="{Binding SelectedItem.ФИО, ElementName=ConfirmTable}"
+                             Foreground="White"
+                             FontSize="26"/>
+                    
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical"
+                            Margin="10, 0, 0, 0">
+
+                    <TextBlock Text="Производитель"
+               Foreground="White"
+               FontSize="20"
+               Margin="0, 12, 5, 10"
+               HorizontalAlignment="Right"/>
+
+                    <TextBlock Text="Модель"
+               Foreground="White"
+               FontSize="20"
+               Margin="0, 15, 5, 15"
+               HorizontalAlignment="Right"/>
+
+                    <TextBlock Text="Цена в день"
+               Foreground="White"
+               FontSize="20"
+               Margin="0, 15, 5, 15"
+               HorizontalAlignment="Right"/>
+
+                    <TextBlock Text="Номерной знак"
+               Foreground="White"
+               FontSize="20"
+               Margin="0, 12, 5, 12"
+               HorizontalAlignment="Right"/>
+
+                    <TextBlock Text="КПП"
+               Foreground="White"
+               FontSize="20"
+               Margin="0, 15, 5, 15"
+               HorizontalAlignment="Right"/>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical">
+
+                    <TextBox x:Name="manufacturer"
+            materialDesign:HintAssist.Hint="Производитель"
+            Width="200"
+            Background="#14141f"
+            Margin="0, 5"
+            Text="{Binding SelectedItem.manufacturer, ElementName=ConfirmTable}"
+            Foreground="White"
+            FontSize="26"/>
+
+                    <TextBox x:Name="model"
+             materialDesign:HintAssist.Hint="Модель"
+             Width="200"
+             Background="#14141f"
+             Margin="0, 5"
+             Text="{Binding SelectedItem.model, ElementName=ConfirmTable}"
+             Foreground="White"
+             FontSize="26"/>
+
+                    <TextBox x:Name="price_a_day"
+             materialDesign:HintAssist.Hint="Цена в день"
+             Width="200"
+             Background="#14141f"
+             Margin="0, 5"
+             Text="{Binding SelectedItem.price_a_day, ElementName=ConfirmTable}"
+             Foreground="White"
+             FontSize="26"/>
+
+                    <TextBox x:Name="licensePlate"
+             materialDesign:HintAssist.Hint="Номерной знак"
+             Width="200"
+             Background="#14141f"
+             Margin="0, 5"
+             Text="{Binding SelectedItem.licensePlate, ElementName=ConfirmTable}"
+             Foreground="White"
+             FontSize="26"/>
+
+                    <TextBox x:Name="gearbox"
+             materialDesign:HintAssist.Hint="КПП"
+             Width="200"
+             Background="#14141f"
+             Margin="0, 5"
+             Text="{Binding SelectedItem.gearbox, ElementName=ConfirmTable}"
+             Foreground="White"
+             FontSize="26"/>
+
+                </StackPanel>
+
+            </StackPanel>
+
+            <DataGrid x:Name="ConfirmTable"
+                      Visibility="Hidden"/>
+
+            <Button x:Name="btn_Submit"
+                    Grid.Row="1"
+                    FontSize="26"
+                    Padding="0, 0, 0, 5"
+                    Foreground="White"
+                    Background="#14141f"
+                    Width="200"
+                    Height="40"
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    VerticalAlignment="Bottom"
+                    Content="Подтвердить"
+                    Margin="0, 0, 0, 10"
+                    Click="btn_Submit_Click"/>
+
         </Grid>
         
     </Border>

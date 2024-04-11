@@ -118,6 +118,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Auth\AdminOrUser.xaml.cs">
+      <DependentUpon>AdminOrUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Auth\AdminAuthWindow .xaml.cs">
+      <DependentUpon>AdminAuthWindow .xaml</DependentUpon>
+    </Compile>
     <Compile Include="user\PageHistory.xaml.cs">
       <DependentUpon>PageHistory.xaml</DependentUpon>
     </Compile>
@@ -130,7 +136,15 @@
     <Compile Include="user\UserMainWindow.xaml.cs">
       <DependentUpon>UserMainWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="AuthWindow.xaml">
+    <Page Include="Auth\AdminOrUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Auth\AdminAuthWindow .xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Auth\UserAuthWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -142,8 +156,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AuthWindow.xaml.cs">
-      <DependentUpon>AuthWindow.xaml</DependentUpon>
+    <Compile Include="Auth\UserAuthWindow.xaml.cs">
+      <DependentUpon>UserAuthWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="admin\AdminMainWindow.xaml.cs">
       <DependentUpon>AdminMainWindow.xaml</DependentUpon>

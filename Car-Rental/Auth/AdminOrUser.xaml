@@ -1,0 +1,97 @@
+﻿<Window x:Class="Car_Rental.AdminOrUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Car_Rental"
+        mc:Ignorable="d"
+        Title="AdminOrUser" Height="400" Width="600"
+        FontSize="26"
+        Foreground="White"
+        Background="Transparent"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Border Background="#223"
+            MouseDown="Border_MouseDown">
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Right">
+
+                <Button Style="{StaticResource MaterialDesignFloatingActionButton}"
+                        Background="{x:Null}" 
+                        ToolTip="Hide"  
+                        x:Name="btnHide" 
+                        Click="btnHide_Click" 
+                        HorizontalAlignment="Center">
+
+                    <materialDesign:PackIcon Kind="MinusThick" Foreground="White" Width="30" Height="30" />
+
+                </Button>
+
+                <Button Style="{StaticResource MaterialDesignFloatingActionButton}"
+                        Background="{x:Null}"
+                        ToolTip="Close" 
+                        x:Name="btnExit" 
+                        Cursor="Hand"
+                        Margin="20, 10"
+                        Click="btnExit_Click">
+
+                    <materialDesign:PackIcon Kind="Close" Foreground="White" Width="30" Height="30" />
+
+                </Button>
+            </StackPanel>
+
+            <TextBlock Text="Войти как"
+                       Grid.Row="1"
+                       HorizontalAlignment="Center"
+                       Margin="0, 35, 0, 0"
+                       Height="50"
+                       FontSize="40"
+                       VerticalAlignment="Top"/>
+
+            <Button x:Name="Client"
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    Content="Клиент"
+                    Grid.Row="1"
+                    Height="70"
+                    FontSize="30"
+                    Padding="0, 0, 0, 7"
+                    Width="200"
+                    Margin="50, 30, 0, 0"
+                    Foreground="White"
+                    HorizontalAlignment="Left"
+                    Click="Client_Click"
+                    BorderThickness="2"
+                    Background="#14141f"/>
+
+
+            <Button x:Name="Admin"
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    Content="Сотрудник"
+                    Grid.Row="1"
+                    Height="70"
+                    Width="200"
+                    FontSize="30"
+                    Padding="0, 0, 0, 7"
+                    Margin="0, 30, 50, 0"
+                    Foreground="White"
+                    HorizontalAlignment="Right"
+                    Click="Admin_Click"
+                    BorderThickness="2"
+                    Background="#14141f"/>
+            
+        </Grid>
+    </Border>
+</Window>

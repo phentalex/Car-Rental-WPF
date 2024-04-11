@@ -1,5 +1,4 @@
-﻿using Car_Rental.user;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,11 +15,11 @@ using System.Windows.Shapes;
 namespace Car_Rental
 {
     /// <summary>
-    /// Логика взаимодействия для UserMainWindow.xaml
+    /// Логика взаимодействия для AdminOrUser.xaml
     /// </summary>
-    public partial class UserMainWindow : Window
+    public partial class AdminOrUser : Window
     {
-        public UserMainWindow()
+        public AdminOrUser()
         {
             InitializeComponent();
         }
@@ -28,6 +27,13 @@ namespace Car_Rental
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
+
+        private void Client_Click(object sender, RoutedEventArgs e)
+        {
+            UserAuthWindow Ua = new UserAuthWindow();
+            this.Close();
+            Ua.Show();
         }
 
         private void btnHide_Click(object sender, RoutedEventArgs e)
@@ -40,23 +46,11 @@ namespace Car_Rental
             Application.Current.Shutdown();
         }
 
-        private void BtnMenu1_Click(object sender, RoutedEventArgs e)
+        private void Admin_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new PageSelectCar();
-        }
-
-        private void BtnMenu2_Click(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new PageHistory();
-        }
-
-        //public string MyLogin { get; set; }
-
-        private void BtnMenu3_Click(object sender, RoutedEventArgs e)
-        {
-            UserAuthWindow au = new UserAuthWindow();
+            AdminAuthWindow Aa = new AdminAuthWindow();
             this.Close();
-            au.Show();
+            Aa.Show();
         }
     }
 }

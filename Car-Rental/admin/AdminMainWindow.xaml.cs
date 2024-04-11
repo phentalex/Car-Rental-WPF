@@ -53,7 +53,7 @@ namespace Car_Rental
 
         private void BtnMenu4_Click(object sender, RoutedEventArgs e)
         {
-            AuthWindow auth = new AuthWindow();
+            AdminAuthWindow auth = new AdminAuthWindow();
             this.Close();
             auth.Show();
         }
