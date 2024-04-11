@@ -146,12 +146,18 @@
                          Background="#14141f"/>
             </StackPanel>
 
-            <Image x:Name="CraveCarImg"
+            <Image Margin="10, 10, 15, 10">
+                <Image.Source>
+                    <BitmapImage UriSource="C:\Users\phentalex\source\repos\cravecar.jpeg"/>
+                </Image.Source>
+            </Image>
+
+            <!--<Image x:Name="CraveCarImg"
                    Margin="10, 10, 15, 10">
                 <Image.Source>
                     <BitmapImage UriSource="E:\cravecar.jpeg"/>
                 </Image.Source>
-            </Image>
+            </Image>-->
         </Grid>
     </Border>
 </Window>
