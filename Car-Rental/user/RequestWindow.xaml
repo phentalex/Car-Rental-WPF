@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Car_Rental.user"
         mc:Ignorable="d"
-        Title="RequestWindow" Height="450" Width="800"
+        Title="RequestWindow" Height="550" Width="800"
         Background="Transparent"
         Foreground="White"
         FontSize="24"
@@ -30,7 +30,39 @@
 
             </Grid.RowDefinitions>
 
+            <TextBlock Text="Стоимость"
+           Foreground="White"
+           FontSize="20"
+           Margin="78, 22, 5, 10"
+           HorizontalAlignment="Left"/>
+
+            <TextBlock x:Name="total_price"
+                     Width="200"
+                     Height="50"
+                     Background="#14141f"
+                     Foreground="White"
+                     FontSize="26"
+                     HorizontalAlignment="Left"
+                     Margin="180, 0"/>
+
+            <Button x:Name="btn_checkPrice"
+                    FontSize="26"
+                    Foreground="White"
+                    Background="#14141f"
+                    Width="160"
+                    Padding="0, 0, 0, 3"
+                    Height="40"
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    HorizontalAlignment="Left"
+                    Content="Обновить"
+                    Margin="430, 0, 0, 0"
+                    Click="btn_checkPrice_Click"/>
+
+
             <TextBox x:Name="login123"
+                     Visibility="Hidden"/>
+
+            <TextBox x:Name="id123"
                      Visibility="Hidden"/>
 
             <StackPanel Orientation="Horizontal"
@@ -101,8 +133,14 @@
                                Margin="0, 15, 5, 15"
                                HorizontalAlignment="Right"/>
 
+                    <TextBlock Text="Начало аренды"
+                               Foreground="White"
+                               FontSize="20"
+                               Margin="0, 12, 5, 15"
+                               HorizontalAlignment="Right"/>
+
                 </StackPanel>
-                
+
                 <StackPanel Orientation="Vertical">
 
                     <TextBox x:Name="name"
@@ -110,7 +148,6 @@
                             Width="200"
                             Background="#14141f"
                             Margin="0, 5"
-                            Text="{Binding SelectedItem.name, ElementName=ConfirmTable}"
                             Foreground="White"
                             FontSize="26"/>
 
@@ -119,7 +156,6 @@
                              Width="200"
                              Background="#14141f"
                              Margin="0, 5"
-                             Text="{Binding SelectedItem.phone, ElementName=ConfirmTable}"
                              Foreground="White"
                              FontSize="26"/>
 
@@ -128,7 +164,6 @@
                              Width="200"
                              Background="#14141f"
                              Margin="0, 5"
-                             Text="{Binding SelectedItem.passport, ElementName=ConfirmTable}"
                              Foreground="White"
                              FontSize="26"/>
 
@@ -137,109 +172,138 @@
                              Width="200"
                              Background="#14141f"
                              Margin="0, 5"
-                             Text="{Binding SelectedItem.email_user, ElementName=ConfirmTable}"
                              Foreground="White"
                              FontSize="26"/>
 
-                    <TextBox x:Name="birth_of_date"
-                             materialDesign:HintAssist.Hint="Дата рождения"
-                             Width="200"
-                             Background="#14141f"
-                             Margin="0, 5"
-                             Text="{Binding SelectedItem.ФИО, ElementName=ConfirmTable}"
-                             Foreground="White"
-                             FontSize="26"/>
-                    
+                    <DatePicker x:Name="birthDate"
+                                materialDesign:HintAssist.Hint="Дата рождения"
+                                Width="200"
+                                Background="#14141f"
+                                Margin="0, 5"
+                                Foreground="White"
+                                FontSize="26"/>
+
+                    <DatePicker x:Name="start_rent"
+                                materialDesign:HintAssist.Hint="Начало аренды"
+                                Width="200"
+                                Background="#14141f"
+                                Margin="0, 5"
+                                Foreground="White"
+                                FontSize="26"
+                                SelectedDateChanged="start_rent_SelectedDateChanged">
+                        <DatePicker.CalendarStyle>
+                            <Style TargetType="{x:Type Calendar}">
+                                <Setter Property="Background" Value="#14141f"/>
+                            </Style>
+                        </DatePicker.CalendarStyle>
+                    </DatePicker>
+
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical"
                             Margin="10, 0, 0, 0">
 
                     <TextBlock Text="Производитель"
-               Foreground="White"
-               FontSize="20"
-               Margin="0, 12, 5, 10"
-               HorizontalAlignment="Right"/>
+                               Foreground="White"
+                               FontSize="20"
+                               Margin="0, 12, 5, 10"
+                               HorizontalAlignment="Right"/>
 
                     <TextBlock Text="Модель"
-               Foreground="White"
-               FontSize="20"
-               Margin="0, 15, 5, 15"
-               HorizontalAlignment="Right"/>
+                               Foreground="White"
+                               FontSize="20"
+                               Margin="0, 15, 5, 15"
+                               HorizontalAlignment="Right"/>
 
                     <TextBlock Text="Цена в день"
-               Foreground="White"
-               FontSize="20"
-               Margin="0, 15, 5, 15"
-               HorizontalAlignment="Right"/>
+                               Foreground="White"
+                               FontSize="20"
+                               Margin="0, 15, 5, 15"
+                               HorizontalAlignment="Right"/>
 
                     <TextBlock Text="Номерной знак"
-               Foreground="White"
-               FontSize="20"
-               Margin="0, 12, 5, 12"
-               HorizontalAlignment="Right"/>
+                               Foreground="White"
+                               FontSize="20"
+                               Margin="0, 12, 5, 12"
+                               HorizontalAlignment="Right"/>
 
                     <TextBlock Text="КПП"
-               Foreground="White"
-               FontSize="20"
-               Margin="0, 15, 5, 15"
-               HorizontalAlignment="Right"/>
+                               Foreground="White"
+                               FontSize="20"
+                               Margin="0, 15, 5, 15"
+                               HorizontalAlignment="Right"/>
+
+                    <TextBlock Text="Конец аренды"
+                               Foreground="White"
+                               FontSize="20"
+                               Margin="0, 12, 5, 15"
+                               HorizontalAlignment="Right"/>
 
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical">
 
-                    <TextBox x:Name="manufacturer"
-            materialDesign:HintAssist.Hint="Производитель"
-            Width="200"
-            Background="#14141f"
-            Margin="0, 5"
-            Text="{Binding SelectedItem.manufacturer, ElementName=ConfirmTable}"
-            Foreground="White"
-            FontSize="26"/>
+                    <TextBlock x:Name="manufacturer"
+                             materialDesign:HintAssist.Hint="Производитель"
+                             Width="200"
+                             Height="44"
+                             Background="#14141f"
+                             Margin="0, 5"
+                             Foreground="White"
+                             FontSize="26"/>
 
-                    <TextBox x:Name="model"
-             materialDesign:HintAssist.Hint="Модель"
-             Width="200"
-             Background="#14141f"
-             Margin="0, 5"
-             Text="{Binding SelectedItem.model, ElementName=ConfirmTable}"
-             Foreground="White"
-             FontSize="26"/>
+                    <TextBlock x:Name="model"
+                             materialDesign:HintAssist.Hint="Модель"
+                             Width="200"
+                             Height="44"
+                             Background="#14141f"
+                             Margin="0, 5"
+                             Foreground="White"
+                             FontSize="26"/>
 
-                    <TextBox x:Name="price_a_day"
-             materialDesign:HintAssist.Hint="Цена в день"
-             Width="200"
-             Background="#14141f"
-             Margin="0, 5"
-             Text="{Binding SelectedItem.price_a_day, ElementName=ConfirmTable}"
-             Foreground="White"
-             FontSize="26"/>
+                    <TextBlock x:Name="price_a_day"
+                             materialDesign:HintAssist.Hint="Цена в день"
+                             Width="200"
+                             Height="44"
+                             Background="#14141f"
+                             Margin="0, 5"
+                             Foreground="White"
+                             FontSize="26"/>
 
-                    <TextBox x:Name="licensePlate"
-             materialDesign:HintAssist.Hint="Номерной знак"
-             Width="200"
-             Background="#14141f"
-             Margin="0, 5"
-             Text="{Binding SelectedItem.licensePlate, ElementName=ConfirmTable}"
-             Foreground="White"
-             FontSize="26"/>
+                    <TextBlock x:Name="licensePlate"
+                             materialDesign:HintAssist.Hint="Номерной знак"
+                             Width="200"
+                             Height="44"
+                             Background="#14141f"
+                             Margin="0, 5"
+                             Foreground="White"
+                             FontSize="26"/>
 
-                    <TextBox x:Name="gearbox"
-             materialDesign:HintAssist.Hint="КПП"
-             Width="200"
-             Background="#14141f"
-             Margin="0, 5"
-             Text="{Binding SelectedItem.gearbox, ElementName=ConfirmTable}"
-             Foreground="White"
-             FontSize="26"/>
+                    <TextBlock x:Name="gearbox"
+                             materialDesign:HintAssist.Hint="КПП"
+                             Width="200"
+                             Height="44"
+                             Background="#14141f"
+                             Margin="0, 5"
+                             Foreground="White"
+                             FontSize="26"/>
 
+                    <DatePicker x:Name="end_rent"
+                                materialDesign:HintAssist.Hint="Конец аренды"
+                                Width="200"
+                                Background="#14141f"
+                                Margin="0, 5"
+                                Foreground="White"
+                                FontSize="26"
+                                SelectedDateChanged="end_rent_SelectedDateChanged">
+                        <DatePicker.CalendarStyle>
+                            <Style TargetType="{x:Type Calendar}">
+                                <Setter Property="Background" Value="#14141f"/>
+                            </Style>
+                        </DatePicker.CalendarStyle>
+                    </DatePicker>
                 </StackPanel>
-
-            </StackPanel>
-
-            <DataGrid x:Name="ConfirmTable"
-                      Visibility="Hidden"/>
+                </StackPanel>
 
             <Button x:Name="btn_Submit"
                     Grid.Row="1"
@@ -248,11 +312,11 @@
                     Foreground="White"
                     Background="#14141f"
                     Width="200"
-                    Height="40"
+                    Height="50"
                     Style="{StaticResource MaterialDesignRaisedButton}"
                     VerticalAlignment="Bottom"
                     Content="Подтвердить"
-                    Margin="0, 0, 0, 10"
+                    Margin="0, 0, 0, 30"
                     Click="btn_Submit_Click"/>
 
         </Grid>

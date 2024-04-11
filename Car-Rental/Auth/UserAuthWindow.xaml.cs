@@ -59,7 +59,6 @@ namespace Car_Rental
                     if (Convert.ToInt32(dr["id_role"]) == 2)
                     {
                         MessageBox.Show("Вы успешно вошли как клиент!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
-                        string login = loginUser.Text;
                         Login = loginUser.Text;
                         UserMainWindow mainU = new UserMainWindow();
                         this.Hide();

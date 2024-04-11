@@ -53,9 +53,12 @@ namespace Car_Rental
                 con.Open();
                 cmd.Connection = con;
                 cmd.CommandText = "select id_rent 'НомерАренды', " +
-                    "id_client 'НомерКлиента', name 'ФИО', id_car 'НомерМашины', " +
-                    "car 'Машина', start_rent 'НачалоАренды', end_rent 'КонецАренды', " +
-                    "total_price 'ПолнаяСтоимость' from rentalcar.rents;";
+                    "start_rent 'НачалоАренды', end_rent 'КонецАренды', " +
+                    "total_price 'ПолнаяСтоимость', name 'ФИО', " +
+                    "passport 'Паспорт', email_user 'Почта', " +
+                    "date_format(birthDate, '%d.%m.%Y') 'ДатаРождения', " +
+                    "manufacturer 'Производитель', model 'Модель', price_a_day 'ЦенаЗаДень', " +
+                    "licensePlate 'НомернойЗнак', gearbox 'КПП' from rentalcar.rents;";
                 cmd.ExecuteNonQuery();
                 dt.Clear();
                 adapter.SelectCommand = cmd;
@@ -119,7 +122,8 @@ namespace Car_Rental
         private void SearchText1_TextChanged(object sender, TextChangedEventArgs e)
         {
             DataView dvManager2 = dt.DefaultView;
-            dvManager2.RowFilter = $"Машина LIKE '%{SearchText1.Text}%' OR " +
+            dvManager2.RowFilter = $"Производитель LIKE '%{SearchText1.Text}%' OR " +
+                $"Модель LIKE '%{SearchText1.Text}%' OR КПП LIKE '%{SearchText1.Text}%' OR " +
                 $"НомерМашины LIKE '%{SearchText1.Text}%'OR ФИО LIKE '%{SearchText1.Text}%'";
         }
 

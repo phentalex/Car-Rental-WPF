@@ -42,6 +42,8 @@ namespace Car_Rental
         {
             loadTable();
         }
+
+        public static string ID;
         
         public void loadTable()
         {
@@ -71,10 +73,17 @@ namespace Car_Rental
 
         private void btn_select_Click(object sender, RoutedEventArgs e)
         {
+            ID = id_car.Text.ToString();
             RequestWindow req = new RequestWindow();
             req.Show();
         }
 
-
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DataView dvManager = dt.DefaultView;
+            dvManager.RowFilter = $"Производитель LIKE '%{SearchText.Text}%' OR " +
+                $"Модель LIKE '%{SearchText.Text}%' OR " +
+                $"КПП LIKE '%{SearchText.Text}%'";
+        }
     }
 }

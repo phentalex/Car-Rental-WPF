@@ -56,7 +56,8 @@ namespace Car_Rental
                     "name 'ФИО', passport 'Паспорт', " +
                     "driversLicense 'НомерУдостоверения', " +
                     "city 'Город',  date_format(birthDate, '%d.%m.%Y') 'ДатаРождения', " +
-                    "phone 'Телефон', email_user 'Почта' from rentalcar.clients;";
+                    "phone 'Телефон', email_user 'Почта', " +
+                    "login_user 'Логин', pass_user 'Пароль' from rentalcar.clients;";
                 cmd.ExecuteNonQuery();
                 dt.Clear();
                 adapter.SelectCommand = cmd;
@@ -80,14 +81,16 @@ namespace Car_Rental
             {
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = $"insert into rentalcar.clients(name, passport, driversLicense, city, birthDate, phone) " +
+                cmd.CommandText = $"insert into rentalcar.clients(name, passport, driversLicense, city, birthDate, phone, email_user) " +
                                   $"values ('{name.Text}', '{Convert.ToInt64(passport.Text)}', '{Convert.ToInt64(driversLicense.Text)}', " +
-                                  $"'{city.Text}', '{birthDate.SelectedDate.Value.ToString("yyyy-MM-dd")}', '{Convert.ToInt64(phone.Text)}')";
+                                  $"'{city.Text}', '{birthDate.SelectedDate.Value.ToString("yyyy-MM-dd")}', '{Convert.ToInt64(phone.Text)}, " +
+                                  $"email_user = '{email_user.Text}'')";
                 int a = cmd.ExecuteNonQuery();
                 if (a == 1)
                 {
                     MessageBox.Show("Данные успешно добавлены!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
+                loadTable();
             }
             catch (Exception ex)
             {
@@ -108,9 +111,9 @@ namespace Car_Rental
                 cmd.CommandText = $"update rentalcar.clients set name = '{name.Text}', " +
                                   $"passport = '{Convert.ToInt64(passport.Text)}', " +
                                   $"driversLicense = '{Convert.ToInt64(driversLicense.Text)}', " +
-                                  $"city = '{city.Text}'," +
+                                  $"city = '{city.Text}', " +
                                   $"birthDate = '{birthDate.SelectedDate.Value.ToString("yyyy-MM-dd")}', " +
-                                  $"phone = '{Convert.ToInt64(phone.Text)}' where id_client = '{id_client.Text}'";
+                                  $"phone = '{Convert.ToInt64(phone.Text)}', email_user = '{email_user.Text}' where id_client = '{id_client.Text}'";
                 int a = cmd.ExecuteNonQuery();
                 if (a == 1)
                 {
@@ -122,6 +125,7 @@ namespace Car_Rental
             {
                 MessageBox.Show(ex.Message);
             }
+            loadTable();
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -145,7 +149,8 @@ namespace Car_Rental
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }  
+            }
+            loadTable();
         }
 
         //private void SearchText_TextChanged(object sender, TextChangedEventArgs e)

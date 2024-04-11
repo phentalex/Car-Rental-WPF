@@ -49,12 +49,14 @@
                        FontSize="34"/>
 
             <TextBox Background="#223"
+                     x:Name="SearchText"
                      FontSize="34"
                      Foreground="White"
                      Height="50"
                      Width="300"
                      Margin="20, -5, 0, 0"
-                     materialDesign:HintAssist.Hint="Данные машины"/>
+                     materialDesign:HintAssist.Hint="Данные машины"
+                     TextChanged="TextBox_TextChanged"/>
 
         </StackPanel>
         
