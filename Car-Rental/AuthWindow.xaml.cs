@@ -56,16 +56,16 @@ namespace Car_Rental
                     if (Convert.ToInt32(dr["id_role"]) == 1)
                     {
                         MessageBox.Show("Вы успешно вошли как сотрудник!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
-                        AdminMainWindow main = new AdminMainWindow();
+                        AdminMainWindow mainA = new AdminMainWindow();
                         this.Close();
-                        main.Show();
+                        mainA.Show();
                     }
                     else if (Convert.ToInt32(dr["id_role"]) == 2)
                     {
                         MessageBox.Show("Вы успешно вошли как клиент!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
-                        //AdminMainWindow main = new AdminMainWindow();
+                        UserMainWindow mainU = new UserMainWindow();
                         this.Close();
-                        //main.Show();
+                        mainU.Show();
                     } 
                     else
                     {

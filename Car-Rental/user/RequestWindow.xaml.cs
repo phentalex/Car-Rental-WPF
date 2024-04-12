@@ -10,24 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Car_Rental
+namespace Car_Rental.user
 {
     /// <summary>
-    /// Логика взаимодействия для PageClients.xaml
+    /// Логика взаимодействия для RequestWindow.xaml
     /// </summary>
-    public partial class PageClients : Page
+    public partial class RequestWindow : Window
     {
-        public PageClients()
+        public RequestWindow()
         {
             InitializeComponent();
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            DragMove();
         }
+
+
     }
 }

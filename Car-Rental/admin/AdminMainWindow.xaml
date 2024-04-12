@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Car_Rental"
         mc:Ignorable="d"
-        Title="AdminMainWindow" Height="1080" Width="1920"
+        Title="AdminMainWindow" Height="880" Width="1920"
         Background="Transparent"
         FontSize="24"
         ResizeMode="NoResize" 
@@ -21,11 +21,6 @@
                 <ColumnDefinition Width="300"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="200"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal"
                         Grid.Column="1"
@@ -63,44 +58,22 @@
                   Y1="0"
                   Y2="880"/>
 
-            <Line Grid.Row="0"
-                  Grid.Column="2"
-                  VerticalAlignment="Bottom"
-                  Stroke="#14141f"
-                  StrokeThickness="5"
-                  X1="0"
-                  X2="1620"/>
-
-            <Line Grid.Row="0"
-                  Grid.Column="0"
-                  VerticalAlignment="Bottom"
-                  HorizontalAlignment="Right"
-                  Stroke="#14141f"
-                  StrokeThickness="5"
-                  Y1="0"
-                  Y2="200"/>
-
-            <Line Grid.Row="0"
-                  Grid.Column="0"
-                  VerticalAlignment="Bottom"
-                  HorizontalAlignment="Right"
-                  Stroke="#14141f"
-                  StrokeThickness="5"
-                  X1="0"
-                  X2="300"/>
             <Frame x:Name="Main" 
                   Grid.Column="1"
                   Grid.Row="1"
-                   NavigationUIVisibility="Hidden"/>
+                   NavigationUIVisibility="Hidden"
+                   VerticalAlignment="Bottom"
+                   Height="880"/>
 
             <StackPanel Grid.Row="1"
-                        Orientation="Vertical">
+                        Orientation="Vertical"
+                        Margin="0, 100">
                 <Button x:Name="BtnMenu1"
                         Content="Автопарк"
                         Grid.Row="2" 
                         Height="100" 
                         VerticalAlignment="Top"
-                        Margin="10, 50, 15, 10"
+                        Margin="10, 0, 15, 10"
                         Click="BtnMenu1_Click"
                         Background="#14141f"/>
 
@@ -131,33 +104,7 @@
                         Click="BtnMenu4_Click"
                         Background="#14141f"/>
             </StackPanel>
-                
-            <StackPanel Grid.Column="1"
-                        Orientation="Horizontal">
-                <TextBlock Text="Поиск"
-                           VerticalAlignment="Center"
-                           Margin="30, 0"/>
-                <TextBox VerticalAlignment="Center"
-                         x:Name="SearchText" 
-                         Width="300"
-                         Height="50"
-                         TextChanged="SearchText_TextChanged"
-                         Foreground="White"
-                         Background="#14141f"/>
-            </StackPanel>
 
-            <Image Margin="10, 10, 15, 10">
-                <Image.Source>
-                    <BitmapImage UriSource="C:\Users\phentalex\source\repos\cravecar.jpeg"/>
-                </Image.Source>
-            </Image>
-
-            <!--<Image x:Name="CraveCarImg"
-                   Margin="10, 10, 15, 10">
-                <Image.Source>
-                    <BitmapImage UriSource="E:\cravecar.jpeg"/>
-                </Image.Source>
-            </Image>-->
         </Grid>
     </Border>
 </Window>

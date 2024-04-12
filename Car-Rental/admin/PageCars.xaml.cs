@@ -35,8 +35,6 @@ namespace Car_Rental
 
         MySqlCommand cmd = new MySqlCommand();
 
-        MySqlDataReader dr;
-
         MySqlDataAdapter adapter = new MySqlDataAdapter();
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -49,8 +47,11 @@ namespace Car_Rental
             {
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "insert into rentalcar.cars(licensePlate, manufacturer, model, gearbox, price_a_day, year) " +
-                    $"values ('{licensePlate.Text}', '{manufacturer.Text}', '{model.Text}', '{gearbox.Text}', '{price_a_day.Text}', '{year.Text}');";
+                cmd.CommandText = "insert into rentalcar.cars(licensePlate, " +
+                    "manufacturer, model, gearbox, price_a_day, year) " +
+                    $"values ('{licensePlate.Text}', '{manufacturer.Text}', " +
+                    $"'{model.Text}', '{gearbox.Text}', '{price_a_day.Text}', " +
+                    $"'{year.Text}');";
                 int a = cmd.ExecuteNonQuery();
                 if(a == 1)
                 {
@@ -147,6 +148,13 @@ namespace Car_Rental
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             loadTable();
+        }
+
+        private void SearchText1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DataView dvManager2 = dt.DefaultView;
+            dvManager2.RowFilter = $"Производитель LIKE '%{SearchText1.Text}%' OR " +
+                $"Модель LIKE '%{SearchText1.Text}%'OR КоробкаПередач LIKE '%{SearchText1.Text}%'";
         }
     }
 }

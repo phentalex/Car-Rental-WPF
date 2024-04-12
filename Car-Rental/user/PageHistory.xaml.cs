@@ -13,16 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Car_Rental
+namespace Car_Rental.user
 {
     /// <summary>
-    /// Логика взаимодействия для PageWorkers.xaml
+    /// Логика взаимодействия для PageHistory.xaml
     /// </summary>
-    public partial class PageRent : Page
+    public partial class PageHistory : Page
     {
-        public PageRent()
+        public PageHistory()
         {
             InitializeComponent();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

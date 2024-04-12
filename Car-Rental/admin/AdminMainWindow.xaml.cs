@@ -26,8 +26,6 @@ namespace Car_Rental
 
     public partial class AdminMainWindow : Window
     {
-        string CS;
-
         public AdminMainWindow()
         {
             InitializeComponent();
