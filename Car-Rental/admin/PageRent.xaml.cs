@@ -131,15 +131,15 @@ namespace Car_Rental
         {
             DataView dvManager2 = dt.DefaultView;
             dvManager2.RowFilter = $"Производитель LIKE '%{SearchText1.Text}%' OR " +
-                $"Модель LIKE '%{SearchText1.Text}%' OR КПП LIKE '%{SearchText1.Text}%' OR " +
-                $"НомерМашины LIKE '%{SearchText1.Text}%'OR ФИО LIKE '%{SearchText1.Text}%'";
+                $"Модель LIKE '%{SearchText1.Text}%' OR " +
+                $"НомернойЗнак LIKE '%{SearchText1.Text}%'OR ФИО LIKE '%{SearchText1.Text}%'";
         }
 
         private void SearchText2_TextChanged(object sender, TextChangedEventArgs e)
         {
             DataView dvManager2 = dt.DefaultView;
             dvManager2.RowFilter = string.Format("convert(Паспорт, 'System.String') LIKE '%{0}%' OR " +
-                "convert(ПолнаяСтоимость, 'System.String')", SearchText2.Text);
+                "convert(ЦенаЗаДень, 'System.String') LIKE '%{0}%'", SearchText2.Text);
         }
     }
 }
