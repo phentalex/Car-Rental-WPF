@@ -47,9 +47,9 @@ namespace Car_Rental
             {
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "insert into rentalcar.cars(licensePlate, " +
+                cmd.CommandText = "insert into rentalcar.cars(free, licensePlate, " +
                     "manufacturer, model, gearbox, price_a_day, year) " +
-                    $"values ('{licensePlate.Text}', '{manufacturer.Text}', " +
+                    $"values ('{free.Text}', '{licensePlate.Text}', '{manufacturer.Text}', " +
                     $"'{model.Text}', '{gearbox.Text}', '{price_a_day.Text}', " +
                     $"'{year.Text}');";
                 int a = cmd.ExecuteNonQuery();
@@ -75,7 +75,8 @@ namespace Car_Rental
             {
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = $"update rentalcar.cars set licensePlate = '{licensePlate.Text}', " +
+                cmd.CommandText = $"update rentalcar.cars set free = '{free.Text}', " +
+                    $" licensePlate = '{licensePlate.Text}', " +
                     $"manufacturer = '{manufacturer.Text}', model = '{model.Text}', " +
                     $"gearbox = '{gearbox.Text}', price_a_day = '{price_a_day.Text}', " +
                     $"year = '{year.Text}' where id_car = '{id_car.Text}'";
@@ -127,6 +128,7 @@ namespace Car_Rental
                 con.Open();
                 cmd.Connection = con;
                 cmd.CommandText = "select id_car 'НомерМашины'," +
+                    "free 'Свободна'," +
                     "licensePlate 'НомернойЗнак'," +
                     "manufacturer 'Производитель'," +
                     "model 'Модель'," +

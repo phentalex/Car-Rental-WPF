@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using MaterialDesignThemes.Wpf;
+using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Asn1.UA;
 using System;
 using System.Collections.Generic;
@@ -48,7 +49,50 @@ namespace Car_Rental.user
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
 
+        public void BlackoutDays ()
+        {
+            if (con.State == System.Data.ConnectionState.Open)
+            {
+                con.Close();
+            }
+            try
+            {
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = $"select start_rent, end_rent from rentalcar.rents where licensePlate = '{licensePlate.Text}'";
+                dr = cmd.ExecuteReader();
+                List<DateTime> dates = new List<DateTime>();
+
+                while(dr.Read())
+                {
+                    var date_start = (DateTime)dr.GetValue(0);
+                    dates.Add(date_start);
+                    var date_end = (DateTime)dr.GetValue(1);
+                    dates.Add(date_end);
+                    DateTime date = date_start;
+                    while(date < date_end)
+                    {
+                        date = date.AddDays(1);
+                        dates.Add(date);
+                    }
+                }
+                
+                for (int i = 0; i < dates.Count; i++)
+                {
+                    start_rent.BlackoutDates.Add(new CalendarDateRange(dates[i]));
+                    end_rent.BlackoutDates.Add(new CalendarDateRange(dates[i]));
+                }
+
+                start_rent.BlackoutDates.AddDatesInPast();
+                
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btn_Submit_Click(object sender, RoutedEventArgs e)
@@ -160,6 +204,7 @@ namespace Car_Rental.user
         {
             loadClient();
             loadCar();
+            BlackoutDays();
         }
 
         private void end_rent_SelectedDateChanged(object sender, SelectionChangedEventArgs e)

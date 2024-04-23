@@ -85,5 +85,12 @@ namespace Car_Rental
         {
             Application.Current.Shutdown();
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            AdminOrUser aou = new AdminOrUser();
+            this.Close();
+            aou.Show();
+        }
     }
 }

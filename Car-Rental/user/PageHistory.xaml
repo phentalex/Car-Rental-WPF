@@ -6,12 +6,62 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:Car_Rental.user"
       mc:Ignorable="d" 
-      d:DesignHeight="880" d:DesignWidth="1620"
+      d:DesignHeight="800" d:DesignWidth="1620"
       Title="PageHistory"
       Loaded="Page_Loaded"
-      FontSize="26">
+      FontSize="26"
+      Foreground="White">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="20, 30"
+            Orientation="Horizontal"
+            Height="50"
+            VerticalAlignment="Top">
+
+            <TextBlock Text="Поиск"
+               FontSize="34"/>
+
+            <TextBox VerticalAlignment="Center"
+                     x:Name="SearchText" 
+                     Width="315"
+                     Height="50"
+                     Margin="20, 0"
+                     TextChanged="SearchText_TextChanged"
+                     Foreground="White"
+                     materialDesign:HintAssist.Hint="Машина, номерной знак"
+                     Background="#14141f"/>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical">
+            <DataGrid x:Name="HistoryTable"
+                      Height="550"
+                      Background="White"
+                      Width="1580"
+                      Grid.Row="0"
+                      FontSize="32"
+                      VerticalAlignment="Top"
+                      Margin="0, 100, 0, 0"
+                      Foreground="#223"
+                      AutoGenerateColumns="True"
+                      ScrollViewer.CanContentScroll="True"
+                      ScrollViewer.VerticalScrollBarVisibility="Auto"
+                      ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                <!--<Style TargetType="ScrollBar">
+                    <Setter Property="Background" Value="Gray"/>
+                </Style>-->
+            </DataGrid>
+        </StackPanel>
+            
+        <!--<TextBox x:Name="passport123"
+                 Visibility="Hidden"/>-->
+
+        <!--<TextBox x:Name="passportValue"
+                 Visibility="Hidden"/>-->
     </Grid>
 </Page>

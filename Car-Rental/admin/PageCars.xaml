@@ -25,7 +25,7 @@
             
             <TextBox VerticalAlignment="Center"
              x:Name="SearchText1" 
-             Width="300"
+             Width="250"
              Height="50"
              TextChanged="SearchText1_TextChanged"
              Foreground="White"
@@ -45,7 +45,7 @@
 
         <DataGrid x:Name="CarsTable"
                   Foreground="#14141f"
-                  Height="600"
+                  Height="500"
                   Margin="10, 100, 10, 10"
                   AutoGenerateColumns="True"
                   VerticalAlignment="Top"/>
@@ -64,7 +64,7 @@
                 <TextBox x:Name="licensePlate"
                      Foreground="White"
                      Background="#14141f"
-                     Width="300"
+                     Width="280"
                      Height="50" 
                      Margin="20"
                      materialDesign:HintAssist.Hint="Номерной знак"
@@ -73,7 +73,7 @@
                 <TextBox x:Name="manufacturer"
                      Foreground="White"
                      Background="#14141f"
-                     Width="300"
+                     Width="280"
                      Height="50"
                      Margin="0, 20"
                      materialDesign:HintAssist.Hint="Производитель"
@@ -88,7 +88,7 @@
                 <TextBox x:Name="model"
                      Foreground="White"
                      Background="#14141f"
-                     Width="300"
+                     Width="280"
                      Height="50"
                      Margin="20"
                      materialDesign:HintAssist.Hint="Модель"
@@ -97,7 +97,7 @@
                 <TextBox x:Name="gearbox"
                      Foreground="White"
                      Background="#14141f"
-                     Width="300"
+                     Width="280"
                      Height="50"
                      Margin="0, 20"
                      materialDesign:HintAssist.Hint="Коробка передач"
@@ -112,7 +112,7 @@
                 <TextBox x:Name="price_a_day"
                      Foreground="White"
                      Background="#14141f"
-                     Width="300"
+                     Width="280"
                      Height="50"
                      Margin="20"
                      materialDesign:HintAssist.Hint="Цена за день"
@@ -121,7 +121,7 @@
                 <TextBox x:Name="year"
                      Foreground="White"
                      Background="#14141f"
-                     Width="300"
+                     Width="280"
                      Height="50"
                      Margin="0, 20"
                      materialDesign:HintAssist.Hint="Год выпуска"
@@ -129,11 +129,22 @@
                 
             </StackPanel>
 
+            <StackPanel Orientation="Vertical">
+                <TextBox x:Name="free"
+                         Foreground="White"
+                         Background="#14141f"
+                         Width="280"
+                         Height="50"
+                         Margin="0, 20"
+                         materialDesign:HintAssist.Hint="Свободна '1/0'"
+                         Text="{Binding SelectedItem.Свободна, ElementName=CarsTable}"/>
+
+            </StackPanel>
 
 
             <StackPanel VerticalAlignment="Bottom"
                         Height="180"
-                        Margin="100, 0">
+                        Margin="0, 0, 0, 0">
 
                 <Button Width="150" 
                         Height="50" 

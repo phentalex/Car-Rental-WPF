@@ -58,7 +58,7 @@ namespace Car_Rental
                 cmd.CommandText = "select id_car 'Номер', manufacturer 'Производитель', " +
                                   "model 'Модель', licensePlate 'НомернойЗнак', " +
                                   "gearbox 'КПП', price_a_day 'ЦенаЗаДень', " +
-                                  "year 'ГодВыпуска' from rentalcar.cars;";
+                                  "year 'ГодВыпуска' from rentalcar.cars where free = 1;";
                 cmd.ExecuteNonQuery();
                 dt.Clear();
                 adapter.SelectCommand = cmd;

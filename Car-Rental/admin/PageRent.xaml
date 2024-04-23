@@ -40,12 +40,12 @@
                      Foreground="White"
                      materialDesign:HintAssist.Hint="Паспорт, Стоимость"
                      Background="#14141f"
-                     Margin="20,0"/>
+                     Margin="10,0"/>
         </StackPanel>
 
         <DataGrid x:Name="RentsTable"
                   Foreground="#14141f"
-                  Height="600"
+                  Height="500"
                   Margin="10, 100, 10, 10"
                   AutoGenerateColumns="True"
                   VerticalAlignment="Top"/>
@@ -61,19 +61,19 @@
                          Margin="-20"
                          Text="{Binding SelectedItem.НомерАренды, ElementName=RentsTable}"/>
 
-                <TextBox x:Name="id_client"
+                <TextBox x:Name="email"
                          Foreground="White"
                          Background="#14141f"
-                         Width="300"
+                         Width="220"
                          Height="50"
-                         Margin="20"
-                         materialDesign:HintAssist.Hint="Номер клиента"
-                         Text="{Binding SelectedItem.НомерКлиента, ElementName=RentsTable}"/>
+                         Margin="10, 20"
+                         materialDesign:HintAssist.Hint="Почта"
+                         Text="{Binding SelectedItem.Почта, ElementName=RentsTable}"/>
 
                 <TextBox x:Name="name"
                          Foreground="White"
                          Background="#14141f"
-                         Width="300"
+                         Width="220"
                          Height="50"
                          Margin="0, 20"
                          materialDesign:HintAssist.Hint="ФИО"
@@ -88,20 +88,20 @@
                 <TextBox x:Name="passport"
                          Foreground="White"
                          Background="#14141f"
-                         Width="300"
+                         Width="220"
                          Height="50"
-                         Margin="20"
+                         Margin="10, 20"
                          materialDesign:HintAssist.Hint="Паспорт"
                          Text="{Binding SelectedItem.Паспорт, ElementName=RentsTable}"/>
 
-                <TextBox x:Name="id_car"
+                <DatePicker x:Name="birthDate"
                          Foreground="White"
                          Background="#14141f"
-                         Width="300"
+                         Width="220"
                          Height="50"
                          Margin="0, 20"
-                         materialDesign:HintAssist.Hint="Номер машины"
-                         Text="{Binding SelectedItem.НомерМашины, ElementName=RentsTable}"/>
+                         materialDesign:HintAssist.Hint="Дата рождения"
+                         Text="{Binding SelectedItem.ДатаРождения, ElementName=RentsTable}"/>
 
             </StackPanel>
 
@@ -109,36 +109,57 @@
 
             <StackPanel VerticalAlignment="Bottom"
                         Height="180">
-                
-                <TextBox x:Name="car"
-                         Foreground="White"
-                         Background="#14141f"
-                         Width="300"
-                         Height="50"
-                         Margin="0, 20"
-                         materialDesign:HintAssist.Hint="Машина"
-                         Text="{Binding SelectedItem.Машина, ElementName=RentsTable}"/>
 
-                <TextBox x:Name="total_price"
+                <TextBox x:Name="manufacturer"
                          Foreground="White"
                          Background="#14141f"
-                         Width="300"
+                         Width="220"
                          Height="50"
                          Margin="0, 20"
-                         materialDesign:HintAssist.Hint="Полная стоимость"
-                         Text="{Binding SelectedItem.ПолнаяСтоимость, ElementName=ClientsTable}"/>
+                         materialDesign:HintAssist.Hint="Производитель"
+                         Text="{Binding SelectedItem.Производитель, ElementName=RentsTable}"/>
+
+                <TextBox x:Name="model"
+                         Foreground="White"
+                         Background="#14141f"
+                         Width="220"
+                         Height="50"
+                         Margin="0, 20"
+                         materialDesign:HintAssist.Hint="Модель"
+                         Text="{Binding SelectedItem.Модель, ElementName=RentsTable}"/>
 
             </StackPanel>
 
+            <StackPanel VerticalAlignment="Bottom"
+            Height="180">
 
+                <TextBox x:Name="licensePlate"
+                         Foreground="White"
+                         Background="#14141f"
+                         Width="220"
+                         Height="50"
+                         Margin="10, 20, 0, 20"
+                         materialDesign:HintAssist.Hint="Номерной знак"
+                         Text="{Binding SelectedItem.НомернойЗнак, ElementName=RentsTable}"/>
+
+                <TextBox x:Name="price_a_day"
+                         Foreground="White"
+                         Background="#14141f"
+                         Width="220"
+                         Height="50"
+                         Margin="10, 20, 0, 20"
+                         materialDesign:HintAssist.Hint="Цена за день"
+                         Text="{Binding SelectedItem.ЦенаЗаДень, ElementName=RentsTable}"/>
+
+            </StackPanel>
 
             <StackPanel VerticalAlignment="Bottom"
                         Height="180"
-                        Margin="20, 0, 0 ,0">
+                        Margin="10, 0, 0 ,0">
                 <DatePicker x:Name="start_rent"
                             Foreground="White"
                             Background="#14141f"
-                            Width="300"
+                            Width="220"
                             Height="50"
                             Margin="0, 20"
                             materialDesign:HintAssist.Hint="Начало аренды"
@@ -153,11 +174,11 @@
                 <DatePicker x:Name="end_rent"
                             Foreground="White"
                             Background="#14141f"
-                            Width="300"
+                            Width="220"
                             Height="50"
                             Margin="0, 20"
                             materialDesign:HintAssist.Hint="Конец аренды"
-                            Text="{Binding SelectedItem.КонецАренды, ElementName=ClientsTable}"
+                            Text="{Binding SelectedItem.КонецАренды, ElementName=RentsTable}"
                             IsTodayHighlighted="False">
                     <DatePicker.CalendarStyle>
                         <Style TargetType="{x:Type Calendar}">
@@ -168,18 +189,29 @@
 
             </StackPanel>
 
+            <StackPanel VerticalAlignment="Bottom"
+                        Height="180">
 
+                <TextBox x:Name="total_price"
+                         Foreground="White"
+                         Background="#14141f"
+                         Width="220"
+                         Height="50"
+                         Margin="10, 20, 0, 20"
+                         materialDesign:HintAssist.Hint="Полная стоимость"
+                         Text="{Binding SelectedItem.ПолнаяСтоимость, ElementName=RentsTable}"/>
+
+            </StackPanel>
 
             <StackPanel VerticalAlignment="Bottom"
-                        Height="180"
-                        Margin="50, 0">
+                        Height="180">
 
                 <Button Width="150" 
-                        Height="50" 
-                        Margin="20"
+                        Height="50"
                         Style="{StaticResource MaterialDesignRaisedButton}"
                         BorderThickness="2"
                         x:Name="btnEdit"
+                        Margin="30, 20"
                         Click="btnEdit_Click"
                         Content="Редактировать"
                         Foreground="White"
@@ -188,7 +220,7 @@
 
                 <Button Width="150" 
                         Height="50" 
-                        Margin="0, 20"
+                        Margin="0, 20, 0, 0"
                         Style="{StaticResource MaterialDesignRaisedButton}"
                         BorderThickness="2"
                         x:Name="btnDelete"

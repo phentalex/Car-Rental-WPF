@@ -53,7 +53,8 @@ namespace Car_Rental
                 con.Open();
                 cmd.Connection = con;
                 cmd.CommandText = "select id_rent 'НомерАренды', " +
-                    "start_rent 'НачалоАренды', end_rent 'КонецАренды', " +
+                    "date_format(start_rent, '%d.%m.%Y') 'НачалоАренды', " +
+                    "date_format(end_rent, '%d.%m.%Y') 'КонецАренды', " +
                     "total_price 'ПолнаяСтоимость', name 'ФИО', " +
                     "passport 'Паспорт', email_user 'Почта', " +
                     "date_format(birthDate, '%d.%m.%Y') 'ДатаРождения', " +
@@ -81,7 +82,14 @@ namespace Car_Rental
             {
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = $"update rentalcar.rents set ...";
+                cmd.CommandText = $"update rentalcar.rents set email_user = '{email.Text}', " +
+                    $"name = '{name.Text}', passport = '{Convert.ToInt64(passport.Text)}', " +
+                    $"birthDate = '{birthDate.SelectedDate.Value.ToString("yyyy-MM-dd")}', " +
+                    $"manufacturer = '{manufacturer.Text}', model = '{model.Text}', " +
+                    $"licensePlate = '{licensePlate.Text}', price_a_day = '{int.Parse(price_a_day.Text)}', " +
+                    $"start_rent = '{start_rent.SelectedDate.Value.ToString("yyyy-MM-dd")}', " +
+                    $"end_rent = '{end_rent.SelectedDate.Value.ToString("yyyy-MM-dd")}', " +
+                    $"total_price = '{total_price.Text}';";
                 int a = cmd.ExecuteNonQuery();
                 if (a == 1)
                 {
@@ -105,7 +113,7 @@ namespace Car_Rental
             {
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = $"delete from rentalcar.rents where if_rent = '{id_rent.Text}'";
+                cmd.CommandText = $"delete from rentalcar.rents where id_rent = '{id_rent.Text}'";
                 int a = cmd.ExecuteNonQuery();
                 if (a == 1)
                 {

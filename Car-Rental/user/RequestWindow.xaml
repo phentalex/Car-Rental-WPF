@@ -190,7 +190,8 @@
                                 Margin="0, 5"
                                 Foreground="White"
                                 FontSize="26"
-                                SelectedDateChanged="start_rent_SelectedDateChanged">
+                                SelectedDateChanged="start_rent_SelectedDateChanged"
+                                DisplayDateStart="">
                         <DatePicker.CalendarStyle>
                             <Style TargetType="{x:Type Calendar}">
                                 <Setter Property="Background" Value="#14141f"/>
