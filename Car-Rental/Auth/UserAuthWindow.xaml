@@ -25,7 +25,7 @@
             <Image HorizontalAlignment="Center"
                    Margin="30, 0, 10, 0">
                 <Image.Source>
-                    <BitmapImage UriSource =" C:\Users\phentalex\source\repos\cravecar.jpeg"/>
+                    <BitmapImage UriSource ="E:\cravecar.jpeg"/>
                 </Image.Source>
             </Image>
 

@@ -114,11 +114,19 @@ namespace Car_Rental.user
                     $"'{email_user.Text}', '{birthDate.SelectedDate.Value.ToString("yyyy-MM-dd")}', " +
                     $"'{manufacturer.Text}', '{model.Text}', '{price_a_day.Text.Replace(",", ".")}', " +
                     $"'{licensePlate.Text}', '{gearbox.Text}');";
-                int a = cmd.ExecuteNonQuery();
-                if (a == 1)
+                if (total_price.Text != null)
                 {
-                    MessageBox.Show("Заявка успешно отправлена!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    int a = cmd.ExecuteNonQuery();
+                    if (a == 1)
+                    {
+                        MessageBox.Show("Заявка успешно отправлена!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("Обновите стоимость!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                
             }
             catch (Exception ex)
             {

@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Configuration;
 using System.Data;
+using Car_Rental.admin;
 
 namespace Car_Rental
 {
@@ -23,6 +24,7 @@ namespace Car_Rental
     /// </summary>
     public partial class PageClients : Page
     {
+        string Login = UserAuthWindow.Login;
         public PageClients()
         {
             InitializeComponent();
@@ -36,6 +38,10 @@ namespace Car_Rental
         DataTable dt = new DataTable();
 
         MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+        MySqlDataReader dr;
+
+        public static string ID;
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
@@ -63,13 +69,14 @@ namespace Car_Rental
                 adapter.SelectCommand = cmd;
                 adapter.Fill(dt);
                 ClientsTable.ItemsSource = dt.DefaultView;
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            GetPassport();
         }
-
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -175,6 +182,43 @@ namespace Car_Rental
             dvManager2.RowFilter = string.Format("convert(Паспорт, 'System.String') LIKE '%{0}%' OR " +
                 "convert(НомерУдостоверения, 'System.String') LIKE '%{0}%' OR " +
                 "convert(Телефон, 'System.String') LIKE '%{0}%'", SearchText2.Text);
+        }
+
+        private void btnHistory_Click(object sender, RoutedEventArgs e)
+        {
+            HistoryWindow HW = new HistoryWindow();
+            HW.Show();
+        }
+
+
+
+        public string GetPassport()
+        {
+            if (con.State == System.Data.ConnectionState.Open)
+            {
+                con.Close();
+            }
+            try
+            {
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = $"select passport from rentalcar.clients where id_client = '{id_client.Text}'";
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    ID = dr.GetValue(0).ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return ID;
+        }
+
+        private void id_client_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            GetPassport();
         }
     }
 }
