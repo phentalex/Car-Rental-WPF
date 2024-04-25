@@ -148,7 +148,7 @@
                          Width="220"
                          Height="50"
                          Margin="10, 20, 0, 20"
-                         materialDesign:HintAssist.Hint="Цена за день"
+                         materialDesign:HintAssist.Hint="Цена за день(руб.)"
                          Text="{Binding SelectedItem.ЦенаЗаДень, ElementName=RentsTable}"/>
 
             </StackPanel>

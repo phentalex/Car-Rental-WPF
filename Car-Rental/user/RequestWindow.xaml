@@ -30,10 +30,10 @@
 
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Стоимость"
+            <TextBlock Text="Стоимость(руб.)"
            Foreground="White"
            FontSize="20"
-           Margin="78, 22, 5, 10"
+           Margin="30, 22, 5, 10"
            HorizontalAlignment="Left"/>
 
             <TextBlock x:Name="total_price"

@@ -60,10 +60,10 @@ namespace Car_Rental.user
                 cmd.CommandText = $"select id_rent 'НомерАренды', " +
                     $"date_format(start_rent, '%d.%m.%Y') 'НачалоАренды', " +
                     $"date_format(end_rent, '%d.%m.%Y') 'КонецАренды', " +
-                    $"total_price 'ПолнаяСтоимость', name 'ФИО', " +
+                    $"total_price 'ПолнаяСтоимость(руб.)', name 'ФИО', " +
                     $"passport 'Паспорт', email_user 'Почта', " +
                     $"date_format(birthDate, '%d.%m.%Y') 'ДатаРождения', " +
-                    $"manufacturer 'Производитель', model 'Модель', price_a_day 'ЦенаЗаДень', " +
+                    $"manufacturer 'Производитель', model 'Модель', price_a_day 'ЦенаЗаДень(руб.)', " +
                     $"licensePlate 'НомернойЗнак', gearbox 'КПП' from rentalcar.rents where passport = {passportValue};";
                 cmd.ExecuteNonQuery();
                 dt.Clear();

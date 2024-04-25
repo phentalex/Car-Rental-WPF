@@ -115,7 +115,7 @@
                      Width="280"
                      Height="50"
                      Margin="20"
-                     materialDesign:HintAssist.Hint="Цена за день"
+                     materialDesign:HintAssist.Hint="Цена за день(руб.)"
                      Text="{Binding SelectedItem.ЦенаЗаДень, ElementName=CarsTable}"/>
                 
                 <TextBox x:Name="year"

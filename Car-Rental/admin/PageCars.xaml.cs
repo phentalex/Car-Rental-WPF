@@ -133,7 +133,7 @@ namespace Car_Rental
                     "manufacturer 'Производитель'," +
                     "model 'Модель'," +
                     "gearbox 'КоробкаПередач'," +
-                    "price_a_day 'ЦенаЗаДень'," +
+                    "price_a_day 'ЦенаЗаДень(руб.)'," +
                     "year 'ГодВыпуска' from rentalcar.cars;";
                 cmd.ExecuteNonQuery();
                 dt.Clear();
